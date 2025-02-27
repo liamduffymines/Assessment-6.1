@@ -1,6 +1,6 @@
 #Liam Duffy
 #CSCI 128
-#Time 3 hours
+#Time 4 hours
 
 num_rounds = int(input("NUM ROUNDS> "))
 num_stocks = int(input("NUM STOCKS> "))
