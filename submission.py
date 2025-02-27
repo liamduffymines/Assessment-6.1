@@ -1,7 +1,6 @@
-#Liam Duffy 
-#CSCI 128 
+#Liam Duffy
+#CSCI 128
 #Time 3 hours
-
 
 num_rounds = int(input("NUM ROUNDS> "))
 num_stocks = int(input("NUM STOCKS> "))
@@ -32,18 +31,24 @@ for _ in range(num_rounds):
             else:
                 Stocks[Ticker] += Change_Amount
 
-    Total_Initial_Investment = sum(Initial_Investments.values())
-    Total_Final_Value = sum(Stocks.values())
+Total_Initial_Investment = sum(Initial_Investments.values())
+Total_Final_Value = sum(Stocks.values())
 
-    for ticker, final_value in Stocks.items():
-        initial_value = Initial_Investments[ticker]
+for ticker, final_value in Stocks.items():
+    initial_value = Initial_Investments[ticker]
+    if initial_value != 0:
         Change_Percentage = ((final_value - initial_value) / initial_value) * 100
+    else:
+        Change_Percentage = 0.0
 
-        if Change_Percentage < 0:
-            print(f"{ticker}: Loss {Change_Percentage:.2f}%")
-        else:
-            print(f"{ticker}: Gain {Change_Percentage:.2f}%")
+    if Change_Percentage <= 0:
+        print(f"OUTPUT {ticker}: Loss {Change_Percentage:.2f}%")
+    else:
+        print(f"OUTPUT {ticker}: Gain {Change_Percentage:.2f}%")
 
+if Total_Initial_Investment != 0:
     Overall_Change = ((Total_Final_Value - Total_Initial_Investment) / Total_Initial_Investment) * 100
-    print(f"Overall: {Total_Initial_Investment:.2f} -> {Total_Final_Value:.2f} {Overall_Change:.2f}%")
+else:
+    Overall_Change = 0.0
 
+print(f"OUTPUT Overall: {Total_Initial_Investment:.2f} -> {Total_Final_Value:.2f} {Overall_Change:.2f}%")
